@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rdf:RDF xmlns:entsoe="http://entsoe.eu/CIM/SchemaExtension/3/1#"
+	xmlns:cim="http://iec.ch/TC57/2013/CIM-schema-cim16#"
+	xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+	<md:FullModel rdf:about="urn:uuid:e9a18448-ad09-437e-b44c-beaf69e0dab1">
+		<md:Model.created>2021-04-28T13:00:37.958Z</md:Model.created>
+		<md:Model.scenarioTime>2021-04-28T20:11:59Z</md:Model.scenarioTime>
+		<md:Model.description>DIGIN10 Low Voltage MR Test model</md:Model.description>
+		<md:Model.modelingAuthoritySet>https://diginenergi.no/DIGIN10/LV1</md:Model.modelingAuthoritySet>
+		<md:Model.profile>http://entsoe.eu/CIM/EquipmentCore/3/1</md:Model.profile>
+		<md:Model.version>2</md:Model.version>
+		<md:Model.DependentOn rdf:resource="urn:uuid:c47d4310-b8ee-480d-9cf3-e53a81630981"/>
+	</md:FullModel>
+
+	<cim:MeterReading rdf:ID="_8b15e860-0f8e-4aeb-a2ac-9d939d7eb221">
+		<cim:IdentifiedObject.description>400 Volt Telemarkstien 2 Meter Reading 1</cim:IdentifiedObject.description>
+		<cim:IdentifiedObject.name>04 TELEMA 2 MR1</cim:IdentifiedObject.name>
+		<cim:MeterReading.isCoincidentTrigger>false</cim:MeterReading.isCoincidentTrigger>
+		<cim:MeterReading.UsagePoint rdf:resource="#_ab9eba1c-28e2-41e6-9d90-97b484581582"/>
+		<cim:MeterReading.Meter rdf:resource="#_2d7c1265-3880-40b2-9595-c8b0d3c50439"/>
+	</cim:MeterReading>
+
+	<cim:Reading rdf:ID="_39c01e70-cd71-4e0e-9bb7-ea7e41417225">
+		<cim:IdentifiedObject.description>400 Volt Telemarkstien 2 Reading 1</cim:IdentifiedObject.description>
+		<cim:IdentifiedObject.name>04 TELEMA 2 Re1</cim:IdentifiedObject.name>
+		<cim:MeasurementValue.timeStamp>2022-01-17T08:00:00Z</cim:MeasurementValue.timeStamp>
+		<cim:BaseReading.reportedDateTime>2022-01-17T08:10:16.1652703Z</cim:BaseReading.reportedDateTime>
+		<cim:BaseReading.source>Test System</cim:BaseReading.source>
+		<cim:BaseReading.value>3</cim:BaseReading.value>
+		<cim:Reading.valueMissing>false</cim:Reading.valueMissing>
+		<cim:Reading.MeterReadings rdf:resource="#_8b15e860-0f8e-4aeb-a2ac-9d939d7eb221"/>
+		<cim:Reading.ReadingType rdf:resource="#_0.0.0.0.1.1.12.0.0.0.0.0.0.0.0.3.72.0"/>
+		<cim:BaseReading.ReadingQualities rdf:resource="#_2.0.0"/> <!--Why is this a many to one?-->
+	</cim:Reading>
+
+	<mr:IntervalBlocks> <!--This one is confusing-->
+		<cim:IntervalReading rdf:ID="_cf74ecb6-7269-46f7-8df9-18b4256dfd5c">
+			<cim:IdentifiedObject.description>400 Volt Telemarkstien 2 Interval Reading 1</cim:IdentifiedObject.description>
+			<cim:IdentifiedObject.name>04 TELEMA 2 IR1</cim:IdentifiedObject.name>
+			<cim:MeasurementValue.timeStamp>2022-01-17T09:00:00Z</cim:MeasurementValue.timeStamp>
+			<cim:BaseReading.reportedDateTime>2022-01-17T09:10:16.1652703Z</cim:BaseReading.reportedDateTime>
+			<cim:BaseReading.source>Test System</cim:BaseReading.source>
+			<cim:BaseReading.value>3</cim:BaseReading.value>
+			<cim:BaseReading.timePeriod> <!--This one is confusing-->
+				<cim:DateTimeInterval.start>2022-01-17T08:00:00Z<DateTimeInterval:start>
+				<cim:DateTimeInterval.end>2022-01-17T09:00:00Z<DateTimeInterval:end>
+			</cim:BaseReading.timePeriod>
+			<cim:BaseReading.ReadingQualities rdf:resource="#_3.8.1"/> <!--Why is this a many to one?-->
+		</cim:IntervalReading>
+		<cim:IntervalBlocks.ReadingType rdf:resource="#_0.0.7.4.1.1.12.0.0.0.0.0.0.0.0.3.72.0"/>
+		<cim:IntervalBlocks.MeterReading rdf:resource="#_8b15e860-0f8e-4aeb-a2ac-9d939d7eb221"/>
+	</mr:IntervalBlocks>
+
+</rdf:RDF>
